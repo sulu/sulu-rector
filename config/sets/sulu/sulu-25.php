@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 use PHPStan\Type\ArrayType;
 use PHPStan\Type\BooleanType;
+use PHPStan\Type\FloatType;
 use PHPStan\Type\IntegerType;
+use PHPStan\Type\IterableType;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\StringType;
 use Rector\Config\RectorConfig;
@@ -53,6 +55,77 @@ return static function (RectorConfig $rectorConfig): void {
                 'Sulu\Bundle\WebsiteBundle\Controller\WebsiteController',
                 'getSubscribedServices',
                 new ArrayType(new StringType(), new StringType()),
+            ),
+            // @see https://github.com/sulu/sulu/pull/6562
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'registerBundles',
+                new IterableType(new StringType(), new StringType()),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getContainerClass',
+                new StringType(),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getCacheDir',
+                new StringType(),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getCommonCacheDir',
+                new StringType(),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getLogDir',
+                new StringType(),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getKernelParameters',
+                new ArrayType(new StringType(), new StringType()),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getEnvironment',
+                new StringType(),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'isDebug',
+                new BooleanType(),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getCharset',
+                new StringType(),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getStartTime',
+                new FloatType(),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getContainer',
+                new ObjectType('Symfony\Component\DependencyInjection\ContainerInterface'),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getBundle',
+                new ObjectType('Symfony\Component\HttpKernel\Bundle\BundleInterface'),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'getBundles',
+                new ArrayType(new IntegerType(), new ObjectType('Symfony\Component\HttpKernel\Bundle\BundleInterface')),
+            ),
+            new AddReturnTypeDeclaration(
+                'Sulu\Component\HttpKernel\SuluKernel',
+                'locateResource',
+                new StringType(),
             ),
         ],
     );
