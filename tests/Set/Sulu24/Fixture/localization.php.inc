@@ -10,7 +10,7 @@ class SomeClass {
 }
 
 ?>
----
+-----
 <?php
 
 class SomeClass {
