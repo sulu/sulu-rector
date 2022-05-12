@@ -12,14 +12,15 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.6",
+        "jackalope/jackalope-doctrine-dbal": "^1.7",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.6",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpstan/phpstan-strict-rules": "^1.1",
         "phpstan/phpstan-webmozart-assert": "^1.0",
         "phpunit/phpunit": "^9.5",
-        "rector/phpstan-rules": "^0.5.1",
         "rector/rector": "dev-main",
+        "sulu/sulu": "^2.5@dev",
         "thecodingmachine/phpstan-strict-rules": "^1.0"
     },
     "autoload": {
