@@ -21,8 +21,6 @@ use Rector\Sulu\Set\SuluLevelSetList;
 use Rector\Config\RectorConfig;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->symfonyContainerXml(__DIR__ . '/var/cache/dev/App_KernelDevDebugContainer.xml');
-
     $rectorConfig->sets([
         SuluLevelSetList::UP_TO_SULU_24,
     ]);

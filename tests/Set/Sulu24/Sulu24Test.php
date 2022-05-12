@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rector\Symfony\Tests\Set\Symfony43;
+namespace Sulu\Rector\Tests\Set\Sulu24;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;

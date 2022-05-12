@@ -1,6 +1,8 @@
 <?php
 
-class SomeClass {
+namespace Sulu\Rector\Tests\Set\Sulu24\Fixture;
+
+class SomeClassLocalization {
     public function someMethod(\Sulu\Component\Localization\Localization $localization)
     {
         $localization->setXDefault('en');
@@ -13,7 +15,9 @@ class SomeClass {
 -----
 <?php
 
-class SomeClass {
+namespace Sulu\Rector\Tests\Set\Sulu24\Fixture;
+
+class SomeClassLocalization {
     public function someMethod(\Sulu\Component\Localization\Localization $localization)
     {
         $localization->setDefault('en');
