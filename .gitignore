@@ -1,0 +1,20 @@
+# composer
+/composer.phar
+/composer.lock
+/auth.json
+/vendor
+
+# phpunit
+/phpunit.xml
+.phpunit.result.cache
+
+# php-cs
+.php-cs-fixer.cache
+
+# System files
+.DS_Store
+
+# IDEs
+.idea/*
+*.iml
+*~
