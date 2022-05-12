@@ -3,7 +3,18 @@ parameters:
         - config
         - src
         - tests
+
     level: max
 
     scanDirectories:
         - stubs
+
+    bootstrapFiles:
+        - vendor/rector/rector/vendor/scoper-autoload.php
+
+
+    ignoreErrors:
+        # allowed on null-safe calls
+        -
+            message: '#Do not use chained method calls\. Put each on separated lines#'
+            path: config/config.php

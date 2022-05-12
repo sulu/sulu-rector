@@ -14,7 +14,7 @@ return static function (RectorConfig $rectorConfig): void {
         ->autowire()
         ->autoconfigure();
 
-    $services->load('Sulu\\Rector', __DIR__ . '/../src')
+    $services->load('Sulu\\Rector\\', __DIR__ . '/../src')
         ->exclude([__DIR__ . '/../src/{Rector,ValueObject}']);
 
     $rectorConfig->rule(RenameClassNonPhpRector::class);
