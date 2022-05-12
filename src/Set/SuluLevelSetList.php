@@ -11,10 +11,10 @@ final class SuluLevelSetList implements SetListInterface
     /**
      * @var string
      */
-    final public const UP_TO_SULU_24 = __DIR__ . '/../../config/sets/symfony/level/up-to-symfony-24.php';
+    final public const UP_TO_SULU_24 = __DIR__ . '/../../config/sets/sulu/level/up-to-sulu-24.php';
 
     /**
      * @var string
      */
-    final public const UP_TO_SULU_25 = __DIR__ . '/../../config/sets/symfony/level/up-to-symfony-25.php';
+    final public const UP_TO_SULU_25 = __DIR__ . '/../../config/sets/sulu/level/up-to-sulu-25.php';
 }
