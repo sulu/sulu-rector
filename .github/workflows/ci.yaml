@@ -46,8 +46,7 @@ jobs:
                   dependency-versions: ${{ matrix.dependency-versions }}
 
             - name: Execute test cases
-              run: time composer test
-
+              run: composer test
 
     php-lint:
         name: "PHP Lint"

@@ -12,13 +12,15 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.6",
+        "jackalope/jackalope-doctrine-dbal": "^1.7",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.6",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpstan/phpstan-strict-rules": "^1.1",
         "phpstan/phpstan-webmozart-assert": "^1.0",
         "phpunit/phpunit": "^9.5",
-        "rector/rector-src": "dev-main",
+        "rector/rector": "dev-main",
+        "sulu/sulu": "^2.5@dev",
         "thecodingmachine/phpstan-strict-rules": "^1.0"
     },
     "autoload": {
@@ -41,8 +43,15 @@
     "scripts": {
         "lint": [
             "@php-cs",
-            "@lint-composer"
+            "@lint-composer",
+            "@lint-rector"
         ],
+        "fix": [
+            "@php-cs-fix",
+            "@rector"
+        ],
+        "lint-rector": "@php vendor/bin/rector process --dry-run",
+        "rector": "@php vendor/bin/rector process",
         "lint-composer": "@composer validate --strict",
         "phpstan": "@php vendor/bin/phpstan analyze",
         "php-cs": "@php vendor/bin/php-cs-fixer fix --verbose --diff --dry-run",
