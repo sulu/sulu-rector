@@ -1,0 +1,77 @@
+name: Test application
+
+on:
+    pull_request:
+    push:
+        branches:
+            - 'main'
+            - '[0-9]+.x'
+            - '[0-9]+.[0-9]+'
+
+# automatically cancel previously started workflows when pushing a new commit to a branch
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    php:
+        name: "PHP ${{ matrix.php-version }} (${{ matrix.dependency-versions }})"
+        runs-on: ubuntu-latest
+
+        env:
+            APP_ENV: test
+            COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - php-version: '8.1'
+                      dependency-versions: 'highest'
+
+        steps:
+            - name: Checkout project
+              uses: actions/checkout@v2
+
+            - name: Install and configure PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  tools: 'composer:v2'
+                  coverage: none
+
+            - name: Install composer dependencies
+              uses: ramsey/composer-install@v1
+              with:
+                  dependency-versions: ${{ matrix.dependency-versions }}
+
+            - name: Execute test cases
+              run: time composer test
+
+
+    php-lint:
+        name: "PHP Lint"
+        runs-on: ubuntu-latest
+
+        env:
+            APP_ENV: test
+            COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        steps:
+            - name: Checkout project
+              uses: actions/checkout@v2
+
+            - name: Install and configure PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.1'
+                  tools: 'composer:v2'
+                  coverage: none
+
+            - name: Install composer dependencies
+              uses: ramsey/composer-install@v1
+              with:
+                  dependency-versions: highest
+
+            - name: Lint code
+              run: composer lint

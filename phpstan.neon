@@ -1,0 +1,9 @@
+parameters:
+    paths:
+        - config
+        - src
+        - tests
+    level: max
+
+    scanDirectories:
+        - stubs
