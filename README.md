@@ -1,6 +1,6 @@
 # Sulu Rector
 
-Rector rules for Sulu CMS upgrades.
+This project contains [Rector rules](https://github.com/rectorphp/rector) for [Sulu CMS](https://github.com/sulu/sulu) upgrades.
 
 ## Install
 
