@@ -6,7 +6,8 @@ class SomeClassLocalization {
     public function someMethod(\Sulu\Component\Localization\Localization $localization)
     {
         $localization->setXDefault('en');
-        $localization->getXDefault();
+        $localization->getLocalization('_');
+        $localization->getLocalization('-');
         $localization->isXDefault();
     }
 }
@@ -21,7 +22,8 @@ class SomeClassLocalization {
     public function someMethod(\Sulu\Component\Localization\Localization $localization)
     {
         $localization->setDefault('en');
-        $localization->getDefault();
+        $localization->getLocale(\Sulu\Component\Localization\Localization::UNDERSCORE);
+        $localization->getLocale(\Sulu\Component\Localization\Localization::DASH);
         $localization->isDefault();
     }
 }

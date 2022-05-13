@@ -7,7 +7,6 @@ use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $services = $rectorConfig->services();
     $rectorConfig->importNames();
     $rectorConfig->paths([__DIR__ . '/src', __DIR__ . '/tests']);
 
