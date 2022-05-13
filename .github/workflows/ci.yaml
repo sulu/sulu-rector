@@ -7,6 +7,8 @@ on:
             - 'main'
             - '[0-9]+.x'
             - '[0-9]+.[0-9]+'
+    schedule:
+        - cron: "0 0 * * 0"
 
 # automatically cancel previously started workflows when pushing a new commit to a branch
 concurrency:
@@ -26,6 +28,8 @@ jobs:
             fail-fast: false
             matrix:
                 include:
+                    - php-version: '8.1'
+                      dependency-versions: 'lowest'
                     - php-version: '8.1'
                       dependency-versions: 'highest'
 
