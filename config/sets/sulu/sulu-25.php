@@ -7,6 +7,7 @@ use PHPStan\Type\BooleanType;
 use PHPStan\Type\FloatType;
 use PHPStan\Type\IntegerType;
 use PHPStan\Type\IterableType;
+use PHPStan\Type\MixedType;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\StringType;
 use Rector\Config\RectorConfig;
@@ -126,6 +127,28 @@ return static function (RectorConfig $rectorConfig): void {
                 'Sulu\Component\HttpKernel\SuluKernel',
                 'locateResource',
                 new StringType(),
+            ),
+            // @see https://github.com/sulu/sulu/pull/6581
+            new AddReturnTypeDeclaration(
+                'Symfony\Cmf\Component\Routing\RouteProviderInterface',
+                'getRouteCollectionForRequest',
+                new ObjectType('Symfony\Component\Routing\RouteCollection'),
+            ),
+            new AddReturnTypeDeclaration(
+                'Symfony\Cmf\Component\Routing\RouteProviderInterface',
+                'getRouteByName',
+                new ObjectType('Symfony\Component\Routing\Route'),
+            ),
+            new AddReturnTypeDeclaration(
+                'Symfony\Cmf\Component\Routing\RouteProviderInterface',
+                'getRoutesByNames',
+                new IterableType(new StringType(), new ObjectType('Symfony\Component\Routing\RouteCollection')),
+            ),
+            // @see https://github.com/sulu/sulu/pull/6581
+            new AddReturnTypeDeclaration(
+                'Symfony\Cmf\Component\Routing\Enhancer\RouteEnhancerInterface',
+                'enhance',
+                new ArrayType(new MixedType(), new MixedType()),
             ),
         ],
     );
