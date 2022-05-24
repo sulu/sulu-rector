@@ -76,5 +76,10 @@ jobs:
               with:
                   dependency-versions: highest
 
+            - name: Debug Files
+              run: |
+                  cat config/sets/sulu/sulu-25.php
+                  cat tests/Set/Sulu25/Fixture/user_get_user_name_to_get_user_identifier.php.inc
+
             - name: Lint code
               run: composer lint
