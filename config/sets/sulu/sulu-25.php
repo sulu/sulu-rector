@@ -11,6 +11,8 @@ use PHPStan\Type\MixedType;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\StringType;
 use Rector\Config\RectorConfig;
+use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
+use Rector\Renaming\ValueObject\MethodCallRename;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddReturnTypeDeclarationRector;
 use Rector\TypeDeclaration\ValueObject\AddReturnTypeDeclaration;
 
@@ -149,6 +151,18 @@ return static function (RectorConfig $rectorConfig): void {
                 'Symfony\Cmf\Component\Routing\Enhancer\RouteEnhancerInterface',
                 'enhance',
                 new ArrayType(new MixedType(), new MixedType()),
+            ),
+        ],
+    );
+
+    $rectorConfig->ruleWithConfiguration(
+        RenameMethodRector::class,
+        [
+            // @see https://github.com/sulu/sulu/pull/6626
+            new MethodCallRename(
+                'Sulu\Component\Security\Authentication\UserInterface',
+                'getUsername',
+                'getUserIdentifier',
             ),
         ],
     );
