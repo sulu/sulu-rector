@@ -18,6 +18,18 @@ use Rector\TypeDeclaration\ValueObject\AddReturnTypeDeclaration;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->ruleWithConfiguration(
+        RenameMethodRector::class,
+        [
+            // @see https://github.com/sulu/sulu/pull/6626
+            new MethodCallRename(
+                'Sulu\Component\Security\Authentication\UserInterface',
+                'getUsername',
+                'getUserIdentifier',
+            ),
+        ],
+    );
+
+    $rectorConfig->ruleWithConfiguration(
         AddReturnTypeDeclarationRector::class,
         [
             // @see https://github.com/sulu/sulu/pull/6582
@@ -151,18 +163,6 @@ return static function (RectorConfig $rectorConfig): void {
                 'Symfony\Cmf\Component\Routing\Enhancer\RouteEnhancerInterface',
                 'enhance',
                 new ArrayType(new MixedType(), new MixedType()),
-            ),
-        ],
-    );
-
-    $rectorConfig->ruleWithConfiguration(
-        RenameMethodRector::class,
-        [
-            // @see https://github.com/sulu/sulu/pull/6626
-            new MethodCallRename(
-                'Sulu\Component\Security\Authentication\UserInterface',
-                'getUsername',
-                'getUserIdentifier',
             ),
         ],
     );
