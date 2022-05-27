@@ -80,5 +80,6 @@ jobs:
               uses: ramsey/composer-install@v2
               with:
                   dependency-versions: highest
+
             - name: Lint code
               run: composer lint
