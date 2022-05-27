@@ -49,11 +49,6 @@ jobs:
               with:
                   dependency-versions: ${{ matrix.dependency-versions }}
 
-            - name: Debug Files
-              run: |
-                  cat config/sets/sulu/sulu-25.php
-                  cat tests/Set/Sulu25/Fixture/user_get_user_name_to_get_user_identifier.php.inc
-
             - name: Execute test cases
               run: composer test
 
