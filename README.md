@@ -17,7 +17,7 @@ To add a set to your config, use `Sulu\Rector\Set\SymfonySetList` and `Sulu\Rect
 class and pick one of constants:
 
 ```php
-use Rector\Sulu\Set\SuluLevelSetList;
+use Sulu\Rector\Set\SuluLevelSetList;
 use Rector\Config\RectorConfig;
 
 return static function (RectorConfig $rectorConfig): void {
