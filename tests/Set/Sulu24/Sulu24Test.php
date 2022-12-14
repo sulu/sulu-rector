@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Sulu\Rector\Tests\Set\Sulu24;
 
-use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
@@ -13,15 +12,15 @@ final class Sulu24Test extends AbstractRectorTestCase
     /**
      * @dataProvider provideData()
      */
-    public function test(SmartFileInfo $fileInfo): void
+    public function test(string $fileInfo): void
     {
-        $this->doTestFileInfo($fileInfo);
+        $this->doTestFile($fileInfo);
     }
 
     /**
-     * @return Iterator<SmartFileInfo>
+     * @return \Iterator<SmartFileInfo>
      */
-    public function provideData(): Iterator
+    public function provideData(): \Iterator
     {
         return $this->yieldFilesFromDirectory(__DIR__ . '/Fixture');
     }
