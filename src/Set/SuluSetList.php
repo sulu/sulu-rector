@@ -17,4 +17,9 @@ final class SuluSetList implements SetListInterface
      * @var string
      */
     final public const SULU_25 = __DIR__ . '/../../config/sets/sulu/sulu-25.php';
+
+    /**
+     * @var string
+     */
+    final public const SULU_30 = __DIR__ . '/../../config/sets/sulu/sulu-30.php';
 }

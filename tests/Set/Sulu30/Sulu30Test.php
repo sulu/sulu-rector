@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Sulu\Rector\Tests\Set\Sulu25;
+namespace Sulu\Rector\Tests\Set\Sulu30;
 
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
-final class Sulu25Test extends AbstractRectorTestCase
+final class Sulu30Test extends AbstractRectorTestCase
 {
     /**
      * @dataProvider provideData()
@@ -27,6 +27,6 @@ final class Sulu25Test extends AbstractRectorTestCase
 
     public function provideConfigFilePath(): string
     {
-        return __DIR__ . '/config/sulu-25.php';
+        return __DIR__ . '/config/sulu-30.php';
     }
 }
