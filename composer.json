@@ -61,7 +61,8 @@
         "allow-plugins": {
             "rector/extension-installer": true,
             "cweagans/composer-patches": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "php-http/discovery": true
         }
     }
 }

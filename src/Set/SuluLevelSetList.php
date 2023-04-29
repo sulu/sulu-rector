@@ -17,4 +17,9 @@ final class SuluLevelSetList implements SetListInterface
      * @var string
      */
     final public const UP_TO_SULU_25 = __DIR__ . '/../../config/sets/sulu/level/up-to-sulu-25.php';
+
+    /**
+     * @var string
+     */
+    final public const UP_TO_SULU_30 = __DIR__ . '/../../config/sets/sulu/level/up-to-sulu-30.php';
 }
