@@ -28,6 +28,12 @@ return static function (RectorConfig $rectorConfig): void {
                 'isXDefault',
                 'isDefault',
             ),
+            // @see https://github.com/sulu/sulu/pull/7053
+            new MethodCallRename(
+                'Sulu\Component\Security\Event\PermissionUpdateEvent',
+                'getSecurityIdentity',
+                'getPermissions',
+            ),
         ],
     );
 };
