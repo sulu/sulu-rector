@@ -23,6 +23,9 @@
         "sulu/sulu": "^2.5@dev",
         "thecodingmachine/phpstan-strict-rules": "^1.0"
     },
+    "conflict": {
+        "phpstan/phpstan": ">=1.10.55"
+    },
     "autoload": {
         "psr-4": {
             "Sulu\\Rector\\": "src"
