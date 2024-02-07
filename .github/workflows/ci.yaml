@@ -30,6 +30,8 @@ jobs:
                 include:
                     - php-version: '8.1'
                       dependency-versions: 'lowest'
+                    - php-version: '8.1'
+                      dependency-versions: 'highest'
                     - php-version: '8.2'
                       dependency-versions: 'highest'
                     - php-version: '8.3'
