@@ -22,7 +22,7 @@ use Rector\Config\RectorConfig;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->sets([
-        SuluLevelSetList::UP_TO_SULU_25,
+        SuluLevelSetList::UP_TO_SULU_26,
     ]);
 };
 ```
