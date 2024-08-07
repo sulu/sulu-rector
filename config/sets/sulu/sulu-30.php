@@ -15,6 +15,9 @@ return static function (RectorConfig $rectorConfig): void {
                 'findByCategoryIds',
                 'findByCategoriesIds',
             ),
+            new MethodCallRename( 'Sulu\Bundle\CategoryBundle\Entity\Category', 'addChildren', 'addChild'),
+            new MethodCallRename( 'Sulu\Bundle\CategoryBundle\Entity\Category', 'removeChildren', 'removeChild'),
+            new MethodCallRename( 'Sulu\Bundle\AdminBundle\Admin\View\FormOverlayListViewBuilder', 'setRequestParameters', 'addRequestParameters'),
         ],
     );
 };
