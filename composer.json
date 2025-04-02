@@ -23,9 +23,6 @@
         "phpunit/phpunit": "^9.5.20",
         "sulu/sulu": "^2.6@dev"
     },
-    "conflict": {
-        "nikic/php-parser": "<4.19"
-    },
     "autoload": {
         "psr-4": {
             "Sulu\\Rector\\": "src"

@@ -17,7 +17,7 @@ final class Sulu26Test extends AbstractRectorTestCase
     }
 
     /**
-     * @return \Iterator<string>
+     * @return \Iterator<array{0: string}>
      */
     public static function provideData(): \Iterator
     {
