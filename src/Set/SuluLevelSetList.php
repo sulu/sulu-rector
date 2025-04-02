@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Sulu\Rector\Set;
 
-use Rector\Set\Contract\SetListInterface;
-
-final class SuluLevelSetList implements SetListInterface
+final class SuluLevelSetList
 {
     /**
      * @var string
