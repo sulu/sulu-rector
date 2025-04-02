@@ -36,6 +36,8 @@ jobs:
                       dependency-versions: 'highest'
                     - php-version: '8.3'
                       dependency-versions: 'highest'
+                    - php-version: '8.4'
+                      dependency-versions: 'highest'
 
         steps:
             - name: Checkout project
