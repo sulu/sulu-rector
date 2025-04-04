@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Rector\Config\RectorConfig;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\ValueObject\MethodCallRename;
+use Sulu\Rector\Rector\ListBuilderInterfaceRector;
 use Sulu\Rector\Rector\RequestParameterTraitRector;
 
 return static function (RectorConfig $rectorConfig): void {
@@ -26,4 +27,5 @@ return static function (RectorConfig $rectorConfig): void {
     );
 
     $rectorConfig->rule(RequestParameterTraitRector::class);
+    $rectorConfig->rule(ListBuilderInterfaceRector::class);
 };
