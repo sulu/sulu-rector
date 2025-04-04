@@ -24,11 +24,14 @@ class PaginatedRepresentationRector extends AbstractRector implements RectorInte
 
     public function refactor(Node $node)
     {
+        // @phpstan-ignore-next-line We need to refer to a deprecated class here.
+        $classToRefactor = ListRepresentation::class;
+
         // Removing the use statement of the class
         if ($node instanceof Use_) {
             $counter = \count($node->uses);
             for ($i = 0; $i < $counter; ++$i) {
-                if ($this->isName($node->uses[$i], ListRepresentation::class)) {
+                if ($this->isName($node->uses[$i], $classToRefactor)) {
                     unset($node->uses[$i]);
                 }
             }
@@ -39,7 +42,7 @@ class PaginatedRepresentationRector extends AbstractRector implements RectorInte
 
         // Refactoring all "new" calls to that class
         if ($node instanceof New_) {
-            if (!$this->isName($node->class, ListRepresentation::class)) {
+            if (!$this->isName($node->class, $classToRefactor)) {
                 return null;
             }
             $node->class = new FullyQualified('Sulu\Component\Rest\ListBuilder\PaginatedListRepresentation');

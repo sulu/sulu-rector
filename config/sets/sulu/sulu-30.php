@@ -13,7 +13,7 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->ruleWithConfiguration(
         RenameMethodRector::class,
         [
-            // Removing old Category functions https://github.com/sulu/sulu/pull/7572
+            // @see Removing old Category functions https://github.com/sulu/sulu/pull/7572
             new MethodCallRename(
                 'Sulu\Bundle\CategoryBundle\Entity\CategoryRepository',
                 'findByCategoryIds',
@@ -24,19 +24,25 @@ return static function (RectorConfig $rectorConfig): void {
 
             new MethodCallRename('Sulu\Bundle\AdminBundle\Admin\View\FormOverlayListViewBuilder', 'setRequestParameters', 'addRequestParameters'),
 
-            // Removing old ListBuilderInterface functions https://github.com/sulu/sulu/pull/7752
+            // @see Removing old ListBuilderInterface functions https://github.com/sulu/sulu/pull/7752
             new MethodCallRename('Sulu\Component\Rest\ListBuilder\ListBuilderInterface', 'setFields', 'setSelectFields'),
             new MethodCallRename('Sulu\Component\Rest\ListBuilder\ListBuilderInterface', 'addField', 'addSelectField'),
             new MethodCallRename('Sulu\Component\Rest\ListBuilder\ListBuilderInterface', 'hasField', 'hasSelectField'),
+
+            // @see Deprecating Localization https://github.com/sulu/sulu/pull/7053
+            new MethodCallRename('Sulu\Component\Webspace\Portal', 'getXDefaultLocalization', 'getDefaultLocalization'),
+            new MethodCallRename('Sulu\Component\Webspace\Portal', 'setXDefaultLocalization', 'setDefaultLocalization'),
+            new MethodCallRename('Sulu\Component\Localization\Localization', 'isXDefault', 'isDefault'),
+            new MethodCallRename('Sulu\Component\Security\Event\PermissionUpdateEvent', 'getSecurityIdentity', 'getPermissions'),
         ],
     );
 
-    // Replacing the RequestParameterTrait: https://github.com/sulu/sulu/pull/7815
+    // @see Replacing the RequestParameterTrait: https://github.com/sulu/sulu/pull/7815
     $rectorConfig->rule(RequestParameterTraitRector::class);
 
-    // Manually fixing whereNot -> where: https://github.com/sulu/sulu/pull/7752
+    // @see Manually fixing whereNot -> where: https://github.com/sulu/sulu/pull/7752
     $rectorConfig->rule(ListBuilderInterfaceRector::class);
 
-    // ListRepresentation -> PaginatedRepresentation https://github.com/sulu/sulu/pull/7740
+    // @see ListRepresentation -> PaginatedRepresentation https://github.com/sulu/sulu/pull/7740
     $rectorConfig->rule(PaginatedRepresentationRector::class);
 };

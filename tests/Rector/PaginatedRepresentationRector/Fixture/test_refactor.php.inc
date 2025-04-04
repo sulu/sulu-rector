@@ -19,12 +19,10 @@ class Test implements ListBuilderInterface
 -----
 <?php
 
-use Sulu\Component\Rest\ListBuilder\ListRepresentation;
-
 class Test implements ListBuilderInterface
 {
     public function invoke() {
-        return new PaginatedRepresentation(
+        return new \Sulu\Component\Rest\ListBuilder\PaginatedListRepresentation(
             $activities,
             ActivityInterface::RESOURCE_KEY,
             (int) $listBuilder->getCurrentPage(),
