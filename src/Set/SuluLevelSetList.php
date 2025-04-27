@@ -20,4 +20,9 @@ final class SuluLevelSetList
      * @var string
      */
     final public const UP_TO_SULU_26 = __DIR__ . '/../../config/sets/sulu/level/up-to-sulu-26.php';
+
+    /**
+     * @var string
+     */
+    final public const UP_TO_SULU_30 = __DIR__ . '/../../config/sets/sulu/level/up-to-sulu-30.php';
 }
